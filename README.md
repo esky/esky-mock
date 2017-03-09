@@ -2,6 +2,39 @@
 
 + 数据生成库：http://mockjs.com/
 
+## 安装
+
+> npm install esky-mock
+
+
+## 配置
+
+> 具体用法可参考 test目录
+
+~~~js
+// 配置文件 mock/conf.js
+module.exports =  {
+	// 请求默认的延迟时间
+	delay: 300,
+	// 基础路径，假数据的URL则省略该路径不写
+	base: 'api',
+	// 服务端口，配合webpack的代理使用
+	port: 3334,
+	// 【必须】假数据文件目录相对路径(相对于node命令的执行路径)
+	dataDir: 'mock/data'
+}
+// 假数据目录 mock/data
+~~~
+
+## 使用
+> npm run mock
+~~~js
+"scripts": {
+    "init": "npm install --no-optional -s --registry=https://registry.npm.taobao.org",
+    "mock": "node node_modules/esky-mock -c 'mock/conf.js'"
+}
+~~~
+
 ## 数据规则
 
 简单示例：
@@ -65,4 +98,4 @@
 
 ## JSON接口
 
-[推荐接口标准] (https://github.com/esky/esky-mock/blob/master/JSON.md)
+[推荐接口标准](https://github.com/esky/esky-mock/blob/master/JSON.md)
