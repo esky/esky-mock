@@ -10,7 +10,7 @@
 // 使用mockjs语法，每次请求时变化
 {
 	'ui/grid/load': {
-		'retcode': 200,
+		'code': 200,
 		'data': {
 			'result|100': [{
 				'id|+1': 1,
@@ -35,7 +35,7 @@
 		useMockjs: true,
 		// 响应内容对象/函数
 		response: {
-			'retcode': 200,
+			'code': 200,
 			'data': {
 				'result|100': [{
 					'id|+1': 1,
@@ -62,3 +62,7 @@
 	}
 }
 ~~~
+
+## JSON接口
+
+[推荐接口标准] (https://github.com/esky/esky-mock/blob/master/JSON.md)
