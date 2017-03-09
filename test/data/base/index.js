@@ -1,6 +1,5 @@
 'use strict';
 let menus = require('./menu')
-let dict = require('./dict')
 module.exports = {
 	'com/init': {
 		delay: 300,
@@ -10,15 +9,12 @@ module.exports = {
 				// 'retcode': 5002,
 				'retcode': 200,
 				data: {
-					// 本地测试开关
-					// __NSIP_DEBUG: true,
 					user:{
 						memberId: '@id',
 						userId: '@id',
 						userName: '@cname',
 						system: 1
 					},
-					dict: dict,
 					menus: menus,
 					serverTime: Date.now()
 				},

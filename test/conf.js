@@ -1,6 +1,3 @@
-'use strict'
-let path = require('path');
-let dataDir = './data';
 module.exports =  {
 	// 请求默认的延迟时间
 	delay: 300,
@@ -8,5 +5,5 @@ module.exports =  {
 	base: 'api',
 	// 服务端口，配合webpack的代理使用
 	port: 3334,
-	dataDir: path.resolve(dataDir)
+	dataDir: './test/data'
 }

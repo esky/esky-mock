@@ -9,12 +9,11 @@
 'use strict'
 const chokidar = require('chokidar');
 const Mockjs = require('mockjs');
-const conf = require('../conf');
 const apiAdapter = require('./apiAdapter');
 
 function findRule(path){
 	// 若文件变动，需更新模块缓存
-	let data = require(conf.dataDir);
+	let data = require(global.__mockDataDir);
 	return data[path] || data['/' + path];
 }
 module.exports = function(path, req, res){

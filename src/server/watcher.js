@@ -1,7 +1,6 @@
 'use strict'
 const chokidar = require('chokidar');
 const path = require('path');
-const conf = require('../conf');
 let watcher;
 function clearCache(mod){
 	if(!mod) return;
@@ -12,8 +11,9 @@ function clearCache(mod){
 }
 module.exports = {
 	start: function() {
+		let dataDir = global.__mockDataDir;
 		if(!watcher){
-			watcher = chokidar.watch(conf.dataDir, {
+			watcher = chokidar.watch(dataDir, {
 				persistent: true
 			});
 		}
@@ -24,12 +24,12 @@ module.exports = {
 			watcher.on('change', (path, stats) => {
 				console.log(`【更新】${path}！`);
 				// delete require.cache[require.resolve(path)];
-				clearCache(require.cache[require.resolve(conf.dataDir)]);
+				clearCache(require.cache[require.resolve(dataDir)]);
 			});
 			watcher.on('add', (path, stats) => {
 				console.log(`【新增】${path}`);
 				// delete require.cache[require.resolve(path)];
-				clearCache(require.cache[require.resolve(conf.dataDir)]);
+				clearCache(require.cache[require.resolve(dataDir)]);
 			});
 		});
 		
