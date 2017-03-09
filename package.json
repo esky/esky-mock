@@ -1,0 +1,12 @@
+{
+	"main": "server",
+	"dependencies": {
+		"express": "^4.0.0",
+		"mockjs": "^1.0.0",
+		"chokidar": "1.6.1"
+	},
+	"scripts": {
+		"init": "npm install -s --registry=https://registry.npm.taobao.org",
+		"start": "node server"
+	}
+}
