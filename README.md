@@ -31,7 +31,7 @@ module.exports =  {
 ~~~js
 "scripts": {
     "init": "npm install --no-optional -s --registry=https://registry.npm.taobao.org",
-    "mock": "node node_modules/esky-mock -c 'mock/conf.js'"
+    "mock": "node node_modules/esky-mock -c mock/conf.js"
 }
 ~~~
 
