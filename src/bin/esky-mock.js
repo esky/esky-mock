@@ -1,8 +1,10 @@
+#!/usr/bin/env node
+
 'use strict'
 let program = require('commander');
-let pkg = require('../package');
+let pkg = require('../../package');
 let defaultConf = require('./defaultConf');
-let server = require('./server');
+let server = require('../server');
 let path = require('path');
 program
 	.version(pkg.version)

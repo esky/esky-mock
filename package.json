@@ -1,8 +1,11 @@
 {
 	"name": "esky-mock",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "假数据服务器",
-	"main": "index.js",
+	"main": "src/server",
+	"bin":{
+		"esky-mock": "./src/bin/esky-mock.js"
+	},
 	"keywords": [
 		"esky",
 		"mock"
@@ -17,7 +20,7 @@
 	},
 	"scripts": {
 		"init": "npm install -s --registry=https://registry.npm.taobao.org",
-		"test": "node index.js -p 3000 -c test/conf.js"
+		"test": "node src/bin/esky-mock -p 3000 -c test/conf.js"
 	},
 	"homepage": "https://github.com/esky/esky-mock",
 	"repository": {
@@ -26,8 +29,5 @@
 	},
 	"engines": {
 		"node": ">=4.00"
-	},
-	"bin":{
-		"esky-mock": "index.js"
 	}
 }

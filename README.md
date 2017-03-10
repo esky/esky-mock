@@ -1,10 +1,8 @@
 # 假数据服务
 
-+ 数据生成库：http://mockjs.com/
-
 ## 安装
 
-> npm install esky-mock
+> npm install esky-mock -g
 
 
 ## 配置
@@ -12,6 +10,7 @@
 > 具体用法可参考 test目录
 
 ~~~js
+// 举例：项目根目录/mock/  存放假数据相关文件
 // 配置文件 mock/conf.js
 module.exports =  {
 	// 请求默认的延迟时间
@@ -27,11 +26,21 @@ module.exports =  {
 ~~~
 
 ## 使用
-> npm run mock
 ~~~js
-"scripts": {
-    "init": "npm install --no-optional -s --registry=https://registry.npm.taobao.org",
-    "mock": "node node_modules/esky-mock -c mock/conf.js"
+// 全局安装，命令行使用
+$ esky-mock -c mock/conf.js
+~~~
+
+~~~js
+// npm项目中使用
+$ npm install esky-mock
+// npm scripts
+$ npm run mock
+// package.json
+{
+	"scripts": {
+		"mock": "esky-mock -c mock/conf.js",
+	}
 }
 ~~~
 
@@ -54,6 +63,8 @@ config.devServer = {
 ~~~
 
 ## 数据规则
+
+> mock规则文档：http://mockjs.com/
 
 简单示例：
 
