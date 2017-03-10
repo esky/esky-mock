@@ -1,6 +1,6 @@
 {
 	"name": "esky-mock",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "假数据服务器",
 	"main": "index.js",
 	"keywords": [
