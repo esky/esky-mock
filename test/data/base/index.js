@@ -2,7 +2,7 @@
 let menus = require('./menu')
 module.exports = {
 	'com/init': {
-		delay: 300,
+		delay: 1000,
 		response: function(req, res){
 			// 动态数据
 			return {

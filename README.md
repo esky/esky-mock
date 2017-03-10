@@ -35,6 +35,24 @@ module.exports =  {
 }
 ~~~
 
+## webpack的代理使用
+
+~~~js
+// 本地服务
+config.devServer = {
+	port: 3333,
+	historyApiFallback: true,
+	hot: true,
+	inline: true,
+	proxy: {
+		'/api/*': {
+			target: 'http://127.0.0.1:3334',
+ 			secure: false
+		}
+	}
+}
+~~~
+
 ## 数据规则
 
 简单示例：
