@@ -1,5 +1,8 @@
 'use strict'
 let resCrt = require('./resCrt');
+let bodyParser = require('body-parser');
+let multer = require('multer'); 
+let cookieParser = require('cookie-parser')
 // http://www.expressjs.com.cn/guide/routing.html
 module.exports = function(app){
 	let conf = global.__mockConf;
@@ -9,10 +12,13 @@ module.exports = function(app){
 	}else{
 		basePathReg = new RegExp('^/');
 	}
+	app.use(bodyParser.json()); // for parsing application/json
+	app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+	app.use(cookieParser());
 	app.use((req, res, next) => {
 		console.log(req.method, req.url);
 		if(req.method === 'POST'){
-			console.log('POST参数', req.query);
+			console.log('POST参数', req.body);
 		}
 		next();
 	})
@@ -23,7 +29,7 @@ module.exports = function(app){
 		try{
 			resObj = resCrt(curPath, req, res);
 		} catch(e){
-			console.log('Mock数据规则执行错误', e);
+			console.error('Mock数据规则执行错误', e);
 			res.status(500).send('Mock数据规则执行错误');
 		}
 		if(resObj.isOk){
