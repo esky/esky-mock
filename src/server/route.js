@@ -8,6 +8,7 @@ module.exports = function(app){
 	let conf = global.__mockConf;
 	let basePathReg;
 	if(conf.base){
+		conf.base = conf.base.replace(/^\/|\/$/g, '');
 		basePathReg = new RegExp('^/'+conf.base+'/');
 	}else{
 		basePathReg = new RegExp('^/');
