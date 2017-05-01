@@ -9,7 +9,7 @@ module.exports = function(app){
 	let basePathReg;
 	if(conf.base){
 		conf.base = conf.base.replace(/^\/|\/$/g, '');
-		basePathReg = new RegExp('^/'+conf.base+'/');
+		basePathReg = new RegExp('^'+conf.base+'/');
 	}
 	app.use(bodyParser.json()); // for parsing application/json
 	app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
