@@ -10,8 +10,6 @@ module.exports = function(app){
 	if(conf.base){
 		conf.base = conf.base.replace(/^\/|\/$/g, '');
 		basePathReg = new RegExp('^/'+conf.base+'/');
-	}else{
-		basePathReg = new RegExp('^/');
 	}
 	app.use(bodyParser.json()); // for parsing application/json
 	app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
@@ -24,8 +22,12 @@ module.exports = function(app){
 		next();
 	})
 	app.use((req, res, next) => {
+		// 去除首个/
+		let curPath = req.path.replace(/^\//, '');
 		// 去除base路径
-		let curPath = req.path.replace(basePathReg, '');
+		if(basePathReg){
+			curPath = curPath.replace(basePathReg, '');
+		}
 		let resObj;
 		try{
 			resObj = resCrt(curPath, req, res);
