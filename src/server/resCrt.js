@@ -7,7 +7,6 @@
  * }
  */
 'use strict'
-const chokidar = require('chokidar');
 const Mockjs = require('mockjs');
 const apiAdapter = require('./apiAdapter');
 

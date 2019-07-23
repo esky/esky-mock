@@ -117,11 +117,17 @@ config.devServer = {
 // response若为函数，则每次请求均会执行。
 // 需要对请求编程时可使用，可以自己处理响应
 {
-	// req请求对象，res响应对象
-	// 文档：http://www.expressjs.com.cn/4x/api.html
-	response: function(req, res){
-		// 私有代码
-	}
+  'ui/grid/load': {
+    // req请求对象，res响应对象
+    // 文档：http://www.expressjs.com.cn/4x/api.html
+    response: function(req, res){
+      // 私有代码
+      // 可以返回JSON，仍然支持mockjs语法
+      // return {}
+      // 可以操作response对象来响应内容
+      res.json({})
+    }
+  }
 }
 ~~~
 
