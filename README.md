@@ -13,14 +13,14 @@
 // 举例：项目根目录/mock/  存放假数据相关文件
 // 配置文件 mock/conf.js
 module.exports =  {
-	// 请求默认的延迟时间
-	delay: 300,
-	// 基础路径，假数据的URL则省略该路径不写
-	base: 'api',
-	// 服务端口，配合webpack的代理使用
-	port: 3334,
-	// 【必须】假数据文件目录相对路径(相对于node命令的执行路径)
-	dataDir: 'mock/data'
+  // 请求默认的延迟时间
+  delay: 300,
+  // 基础路径，假数据的URL则省略该路径不写
+  base: 'api',
+  // 服务端口，配合webpack的代理使用
+  port: 3334,
+  // 【必须】假数据文件目录相对路径(相对于node命令的执行路径)
+  dataDir: 'mock/data'
 }
 // 假数据目录 mock/data
 ~~~
@@ -38,9 +38,9 @@ $ npm install esky-mock
 $ npm run mock
 // package.json
 {
-	"scripts": {
-		"mock": "esky-mock -c mock/conf.js",
-	}
+  "scripts": {
+    "mock": "esky-mock -c mock/conf.js",
+  }
 }
 ~~~
 
@@ -49,16 +49,16 @@ $ npm run mock
 ~~~js
 // 本地服务
 config.devServer = {
-	port: 3333,
-	historyApiFallback: true,
-	hot: true,
-	inline: true,
-	proxy: {
-		'/api/*': {
-			target: 'http://127.0.0.1:3334',
- 			secure: false
-		}
-	}
+  port: 3333,
+  historyApiFallback: true,
+  hot: true,
+  inline: true,
+  proxy: {
+    '/api/*': {
+      target: 'http://127.0.0.1:3334',
+      secure: false
+    }
+  }
 }
 ~~~
 
@@ -71,17 +71,17 @@ config.devServer = {
 ~~~js
 // 使用mockjs语法，每次请求时变化
 {
-	'ui/grid/load': {
-		'code': 200,
-		'data': {
-			'result|100': [{
-				'id|+1': 1,
-				account: '@email',
-				name: '@cname'
-			}],
-			'totalCount|500-1000': 1
-		}
-	}
+  'ui/grid/load': {
+    'code': 200,
+    'data': {
+      'result|100': [{
+        'id|+1': 1,
+        account: '@email',
+        name: '@cname'
+      }],
+      'totalCount|500-1000': 1
+    }
+  }
 }
 ~~~
 
@@ -90,24 +90,24 @@ config.devServer = {
 ~~~js
 // 每次请求的内容不同
 {
-	'ui/grid/load': {
-		// 请求延迟毫秒数
-		delay: 300,
-		// 是否使用mockjs库解析
-		useMockjs: true,
-		// 响应内容对象/函数
-		response: {
-			'code': 200,
-			'data': {
-				'result|100': [{
-					'id|+1': 1,
-					account: '@email',
-					name: '@cname'
-				}],
-				'totalCount|500-1000': 1
-			}
-		)
-	}
+  'ui/grid/load': {
+    // 请求延迟毫秒数
+    delay: 300,
+    // 是否使用mockjs库解析
+    useMockjs: true,
+    // 响应内容对象/函数
+    response: {
+      'code': 200,
+      'data': {
+        'result|100': [{
+          'id|+1': 1,
+          account: '@email',
+          name: '@cname'
+        }],
+        'totalCount|500-1000': 1
+      }
+    )
+  }
 }
 ~~~
 
