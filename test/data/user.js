@@ -33,12 +33,22 @@ module.exports = {
       }
     }
   },
-
-  //客户审核-审核接口
-  'account/audit': {
-    response: {
-      'retcode|1': [200, 404],
-      'retdesc': 'retdesc'
+  '/account/account.html': {
+    response(req, res) {
+      res.redirect('/account/mashang.html?status=1')
+    }
+  },
+  '/account/mashang.html': {
+    response(req, res) {
+      // 可以操作response对象来响应内容
+      setTimeout(() => {
+        res.send(`
+        <html>
+          <head></head>
+          <body></body>
+        </html>
+        `)
+      }, 3000)
     }
   }
 }
